@@ -1,0 +1,665 @@
+:root {
+    --primary: #50ff50;
+    --bg: #fff2c6;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg);
+    color: #000000;
+  }
+
+  /* Navbar */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.4rem 7%;
+    background-color: rgba(1, 1, 1, 0.8);
+    border-bottom: 1px solid #513c28;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+  }
+
+  .navbar .navbar-logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    font-style: italic;
+  }
+
+  .navbar .navbar-logo span {
+    color: var(--primary);
+  }
+
+  .navbar .navbar-nav a {
+    color: #fff;
+    display: inline-block;
+    font-size: 1.3rem;
+    margin: 0 1rem;
+  }
+
+  .navbar .navbar-nav a:hover {
+    color: var(--primary);
+  }
+
+  .navbar .navbar-nav a::after {
+    content: '';
+    display: block;
+    padding-bottom: 0.5rem;
+    border-bottom: 0.1rem solid var(--primary);
+    transform: scaleX(0);
+    transition: 0.2s linear;
+  }
+
+  .navbar .navbar-nav a:hover::after {
+    transform: scaleX(0.5);
+  }
+
+  .navbar .navbar-extra a {
+    color: #fff;
+    margin: 0 0.5rem;
+  }
+
+  .navbar .navbar-extra a:hover {
+    color: var(--primary);
+  }
+
+  #hamburger-menu {
+    display: none;
+  }
+
+  /* Navbar search form */
+  .navbar .search-form {
+    position: absolute;
+    top: 100%;
+    right: 7%;
+    background-color: #fff;
+    width: 50rem;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: 0.3s;
+  }
+
+  .navbar .search-form.active {
+    transform: scaleY(1);
+  }
+
+  .navbar .search-form input {
+    height: 100%;
+    width: 100%;
+    font-size: 1.6rem;
+    color: var(--bg);
+    padding: 1rem;
+  }
+
+  .navbar .search-form label {
+    cursor: pointer;
+    font-size: 2rem;
+    margin-right: 1.5rem;
+    color: var(--bg);
+  }
+
+  /* Shopping Cart */
+  .shopping-cart {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    height: 100vh;
+    width: 35rem;
+    padding: 0 1.5rem;
+    background-color: #fff;
+    color: var(--bg);
+    transition: 0.3s;
+  }
+
+  .shopping-cart.active {
+    right: 0;
+  }
+
+  .shopping-cart .cart-item {
+    margin: 2rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed #666;
+    position: relative;
+  }
+
+  .shopping-cart img {
+    height: 6rem;
+    border-radius: 50%;
+  }
+
+  .shopping-cart h3 {
+    font-size: 1.6rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .shopping-cart .item-price {
+    font-size: 1.2rem;
+  }
+
+  .shopping-cart .remove-item {
+    position: absolute;
+    right: 1rem;
+    cursor: pointer;
+  }
+
+  .shopping-cart .remove-item:hover {
+    color: var(--primary);
+  }
+
+  /* Hero Section */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background-image: url('../img/plank.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    -webkit-mask-image: linear-gradient(rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0));
+    mask-image: linear-gradient(rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0));
+  }
+
+  /* .hero::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    bottom: 0;
+    background: linear-gradient(0deg, rgba(1, 1, 3, 1) 8%, rgba(255, 255, 255, 0) 50%);
+  } */
+
+
+  .hero .content {
+    padding: 1.4rem 7%;
+    /* max-width: 60rem; */
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    top: 130px;
+  }
+
+  .hero .content h1 {
+    font-size: 5em;
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+    line-height: 1.2;
+  }
+
+  .hero .content h1 span {
+    color: var(--primary);
+  }
+
+  .hero .content p {
+    font-size: 2rem;
+    margin-top: 1rem;
+    line-height: 1.4;
+    font-weight: medium; /* Mengubah gaya huruf menjadi medium */
+    text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+    mix-blend-mode: difference;
+  }
+
+  .hero .content .cta {
+    margin-top: 1rem;
+    display: inline-block;
+    padding: 1rem 3rem;
+    font-size: 1.4rem;
+    color: #fff;
+    background-color: var(--primary);
+    border-radius: 0.5rem;
+    box-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+  }
+
+  /* About Section */
+  .about,
+  .menu,
+  .products,
+  .contact {
+    padding: 8rem 7% 1.4rem;
+  }
+
+  .about h2,
+  .menu h2,
+  .products h2,
+  .contact h2 {
+    text-align: center;
+    font-size: 2.6rem;
+    margin-bottom: 3rem;
+  }
+
+  .about h2 span,
+  .menu h2 span,
+  .products h2 span,
+  .contact h2 span {
+    color: var(--primary);
+  }
+
+  .about .row {
+    display: flex;
+  }
+
+  .about .row .about-img {
+    flex: 1 1 45rem;
+    display: flex;
+    justify-content: center; /* Menengahkan gambar di dalam kolom */
+    align-items: center; /* Menengahkan gambar di dalam kolom */
+  }
+
+  .about .row .about-img img {
+    max-width: 100%; /* Gambar akan menyesuaikan lebar maksimum parentnya */
+    height: auto; /* Gambar akan menyesuaikan tinggi sesuai proporsi */
+  }
+
+  .about .row .content {
+    flex: 1 1 35rem;
+    padding: 0 1rem;
+  }
+
+  .about .row .content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .about .row .content p {
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+    font-weight: medium; /* Mengubah gaya huruf menjadi medium */
+    line-height: 1.6;
+  }
+
+  /*tombol wa*/
+  .whatsapp-button {
+    position: fixed;
+    bottom: 20px; /* Atur jarak dari bawah */
+    right: 20px; /* Atur jarak dari kanan */
+    width: 60px; /* Lebar tombol */
+    height: 60px; /* Tinggi tombol */
+    background-color: #25D366; /* Warna latar belakang */
+    border-radius: 50%; /* Membuat tombol menjadi lingkaran */
+    text-align: center;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2); /* Bayangan */
+  }
+
+  .whatsapp-button a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 60px; /* Tinggi ikon */
+    color: #fff; /* Warna ikon */
+    font-size: 24px; /* Ukuran ikon */
+    transition: background-color 0.3s ease;
+  }
+
+  .whatsapp-button a:hover {
+    background-color: #128C7E; /* Warna latar belakang saat hover */
+    border-radius: 50px;
+    border-style: hidden;
+  }
+
+  /*tombol waktu jadwal*/
+  /* Floating schedule button */
+.floating-schedule-button {
+    position: fixed;
+    bottom: 20px; /* Atur jarak dari bawah */
+    right: 200px; /* Atur jarak dari kanan */
+    z-index: 1000; /* Pastikan tombol di atas konten lain */
+  }
+
+  .floating-schedule-button a {
+    display: block;
+    width: 60px; /* Lebar tombol */
+    height: 60px; /* Tinggi tombol */
+    background-color: #007bff; /* Warna latar belakang */
+    color: #fff; /* Warna teks */
+    text-align: center;
+    line-height: 60px; /* Tinggi ikon */
+    font-size: 24px; /* Ukuran ikon */
+    border-radius: 50%; /* Membuat tombol menjadi lingkaran */
+    text-decoration: none; /* Menghapus garis bawah pada tautan */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Bayangan */
+    transition: background-color 0.3s ease;
+  }
+
+  .floating-schedule-button a:hover {
+    background-color: #0056b3; /* Warna latar belakang saat hover */
+  }
+
+  /* Tooltip text */
+  .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1000;
+    bottom: 100%; /* Atur tooltip di atas tombol */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .schedule-tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  /* Menu Section */
+  .menu h2,
+  .products h2,
+  .contact h2 {
+    margin-bottom: 1rem;
+  }
+  .menu p,
+  .products p,
+  .contact p {
+    text-align: center;
+    max-width: 30rem;
+    margin: auto;
+    font-weight: medium; /* Mengubah gaya huruf menjadi medium */
+    line-height: 1.6;
+  }
+
+  .menu .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 5rem;
+    justify-content: center;
+  }
+
+  .menu .row .menu-card {
+    text-align: center;
+    padding-bottom: 4rem;
+  }
+
+  .menu .row .menu-card img {
+    border-radius: 50%;
+    overflow: hidden;
+    object-fit: cover;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    margin: 40px;
+
+  }
+
+  .menu .row .menu-card .menu-card-title {
+    margin: 1rem auto 0.5rem;
+  }
+
+  /* Contact Section */
+  .contact {
+    background-color: #f0f0f0; /* Example background color */
+    padding: 20px;
+}
+.contact-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 800px; /* Adjust as needed */
+    margin: 0 auto;
+}
+.contact h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.contact p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+.map-container {
+    position: relative; /* For positioning the iframe */
+    overflow: hidden; /* Prevent scrolling */
+}
+.map-container iframe {
+    width: 100%;
+    height: 300px; /* Adjust as needed */
+    aspect-ratio: 16/9; /* Maintain aspect ratio */
+}
+
+  /* Footer */
+  footer {
+    background-color:#222;
+    text-align: center;
+    padding: 1rem 0 3rem;
+    margin-top: 3rem;
+  }
+
+  footer .socials {
+    padding: 1rem 0;
+  }
+
+  footer .socials a {
+    color: #fff;
+    margin: 1rem;
+    margin-bottom: 5px;
+  }
+
+  footer .socials a:hover,
+  footer .links a:hover {
+    color: var(--bg);
+  }
+
+  footer .links {
+    margin-bottom: 10px;
+    margin-top: 40px;
+  }
+
+  footer .links a {
+    color: #fff;
+    padding: 0.7rem 1rem;
+  }
+
+  footer .credit {
+    font-size: 0.8rem;
+  }
+
+  footer .credit a {
+    color: var(--bg);
+    font-weight: 700;
+  }
+
+  /* Modal Box */
+  /* Item Detail */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  .modal-container {
+    position: relative;
+    background-color: #fefefe;
+    color: var(--bg);
+    margin: 15% auto;
+    padding: 1.2rem;
+    border: 1px solid #666;
+    width: 80%;
+    animation: animateModal 0.5s;
+  }
+
+  /* Modal Animation */
+  @keyframes animateModal {
+    from {
+      top: -300px;
+      opacity: 0;
+    }
+    to {
+      top: 0;
+      opacity: 1;
+    }
+  }
+
+  .modal-container .close-icon {
+    position: absolute;
+    right: 1rem;
+  }
+
+  .modal-content {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  .modal-content img {
+    height: 20rem;
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .modal-content p {
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+    margin-top: 1.2rem;
+  }
+
+  .modal-content a {
+    display: flex;
+    gap: 1rem;
+    width: 12rem;
+    background-color: var(--primary);
+    color: #fff;
+    margin-top: 1rem;
+    padding: 1rem 1.6rem;
+  }
+
+  /* Media Queries */
+  /* Laptop */
+  @media (max-width: 1366px) {
+    html {
+      font-size: 75%;
+    }
+  }
+
+  /* Tablet */
+  @media (max-width: 758px) {
+    html {
+      font-size: 62.5%;
+    }
+
+    #hamburger-menu {
+      display: inline-block;
+    }
+
+    .navbar .navbar-nav {
+      position: absolute;
+      top: 100%;
+      right: -100%;
+      background-color: #fff;
+      width: 30rem;
+      height: 100vh;
+      transition: 0.3s;
+    }
+
+    .navbar .navbar-nav.active {
+      right: 0;
+    }
+
+    .navbar .navbar-nav a {
+      color: var(--bg);
+      display: block;
+      margin: 1.5rem;
+      padding: 0.5rem;
+      font-size: 2rem;
+    }
+
+    .navbar .navbar-nav a::after {
+      transform-origin: 0 0;
+    }
+
+    .navbar .navbar-nav a:hover::after {
+      transform: scaleX(0.2);
+    }
+
+    .navbar .search-form {
+      width: 90%;
+      right: 2rem;
+    }
+
+    .about .row {
+      flex-wrap: wrap;
+    }
+
+    .about .row .about-img img {
+      height: 24rem;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .about .row .content {
+      padding: 0;
+    }
+
+    .about .row .content h3 {
+      margin-top: 1rem;
+      font-size: 2rem;
+    }
+
+    .about .row .content p {
+      font-size: 1.6rem;
+    }
+
+    .menu p {
+      font-size: 1.2rem;
+    }
+
+    .contact .row {
+      flex-wrap: wrap;
+    }
+
+    .contact .row .map {
+      height: 30rem;
+    }
+
+    .contact .row form {
+      padding-top: 0;
+    }
+
+    .modal-content {
+      flex-wrap: wrap;
+    }
+  }
+
+  /* Mobile Phone */
+  @media (max-width: 450px) {
+    html {
+      font-size: 55%;
+    }
+  }
