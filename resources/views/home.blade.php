@@ -45,7 +45,7 @@
       <main class="content">
         <h1>Mari Terapi Sehat <span>Griyah JOGJA</span></h1>
         <p style="color: white">Griyah jogja adalah terapi tradisional dari yogyakarta berdiri sejak tahun 1980</p>
-        <p style="color: white">Buka Jam 08.00 - 18.00</p>
+        <p style="color: rgb(255, 9, 9)">Buka Jam 08.00 - 18.00</p>
       </main>
     </div>
   </section>
@@ -93,25 +93,25 @@
   </div> --}}
 
   <!-- Menu Section start -->
-  <section id="menu" class="menu">
+<section id="menu" class="menu">
     <h2><span>Layanan</span> Kami</h2>
-    <p>Kami memberikan layanan terbaik untuk pelanggan dan memberikan jasa terapi yang sangat memuaskan secara pengobatan terapi tradisional
-    </p>
-    <div style="display:flexbox">
-    <div class="row">
+    <p>Kami memberikan layanan terbaik untuk pelanggan dan memberikan jasa terapi yang sangat memuaskan secara pengobatan terapi tradisional</p>
+    <div class="menu-container">
         @forelse ($products as $product)
-      <div class="menu-card">
-        <img src="{{ Storage::url('products/' . $product->image) }}" alt="{{ $product->title }}" class="menu-card-img">
-        <h3 class="menu-card-title">- {{ $product->title }} -</h3>
-        <p class="menu-card-price">{{ "Rp " . number_format($product->price,2,',','.') }}</p>
-      </div>
+            <div class="menu-card card">
+                <img src="{{ Storage::url('products/' . $product->image) }}" alt="{{ $product->title }}" class="card-img-top menu-card-img">
+                <div class="card-body">
+                    <h3 class="card-title menu-card-title">- {{ $product->title }} -</h3>
+                    <p class="card-text menu-card-price">{{ "Rp " . number_format($product->price, 2, ',', '.') }}</p>
+                    <a href="https://wa.me/+6282325054448?text=Saya%20ingin%20memesan%20{{ urlencode($product->title) }}" class="btn btn-primary buy-button">Pesan</a>
+                </div>
+            </div>
         @empty
-        <div class="col-md-12">
             <div class="alert alert-info text-center">No products available</div>
-    @endforelse
+        @endforelse
     </div>
-    </div>
-  </section>
+</section>
+
   <!-- Menu Section end -->
 
   <!-- Contact Section start -->
@@ -119,7 +119,6 @@
     <div class="contact-content">
         <h2><span>Kontak</span> Kami</h2>
         <p>Hubungi kami jika ada pertanyaan dan saran agar menjadi lembaga yang baik dan profesional</p>
-
         <div class="map-container">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63248.01664774149!2d110.23474672167966!3d-7.789712899999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7af79f46cfb5d3%3A0x7d04aa44cbe7697f!2sGRIYA%20RUQYAH%20SYAR&#39;IYAH%20(GRS%20Jogja%20%26%20PAZ%20jogja)!5e0!3m2!1sen!2sid!4v1719331788359!5m2!1sen!2sid" width="500" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
@@ -154,7 +153,7 @@
       <div class="modal-content">
         <img src="img/products/1.jpg" alt="Product 1">
         <div class="product-content">
-          <h3>Product 1</h3>
+          <h3></h3>
           <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident, tenetur cupiditate facilis obcaecati
             ullam maiores minima quos perspiciatis similique itaque, esse rerum eius repellendus voluptatibus!</p>
           <div class="product-stars">

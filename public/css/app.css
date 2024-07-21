@@ -20,6 +20,7 @@
     font-family: 'Poppins', sans-serif;
     background-color: var(--bg);
     color: #000000;
+    align-items: center;
   }
 
   /* Navbar */
@@ -35,6 +36,7 @@
     left: 0;
     right: 0;
     z-index: 9999;
+    text-align: center;
   }
 
   .navbar .navbar-logo {
@@ -334,7 +336,7 @@
     display: block;
     width: 60px; /* Lebar tombol */
     height: 60px; /* Tinggi tombol */
-    background-color: #007bff; /* Warna latar belakang */
+    background-color: #00ff51; /* Warna latar belakang */
     color: #fff; /* Warna teks */
     text-align: center;
     line-height: 60px; /* Tinggi ikon */
@@ -373,47 +375,86 @@
   }
 
   /* Menu Section */
-  .menu h2,
-  .products h2,
-  .contact h2 {
-    margin-bottom: 1rem;
-  }
-  .menu p,
-  .products p,
-  .contact p {
+  .menu {
+    padding: 20px;
     text-align: center;
-    max-width: 30rem;
-    margin: auto;
-    font-weight: medium; /* Mengubah gaya huruf menjadi medium */
-    line-height: 1.6;
-  }
+}
 
-  .menu .row {
+.menu-container {
     display: flex;
-    flex-wrap: wrap;
-    margin-top: 5rem;
     justify-content: center;
-  }
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 10px;
+}
 
-  .menu .row .menu-card {
-    text-align: center;
-    padding-bottom: 4rem;
-  }
-
-  .menu .row .menu-card img {
-    border-radius: 50%;
+.menu-card {
+    flex: 0 0 auto;
+    width: 250px;
+    margin: 0 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    scroll-snap-align: start;
+    margin: 10px;
     overflow: hidden;
-    object-fit: cover;
-    width: 200px;
+}
+
+.menu-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.menu-card-img {
+    width: 100%;
     height: 200px;
-    display: flex;
-    margin: 40px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
 
-  }
+.menu-card-title {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
 
-  .menu .row .menu-card .menu-card-title {
-    margin: 1rem auto 0.5rem;
-  }
+.menu-card-price {
+    font-size: 1.2em;
+    color: #28a745;
+}
+
+.buy-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #dc3545;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 0 0 10px 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.buy-button:hover {
+    background-color: #c82333;
+}
+
+@media (max-width: 768px) {
+    .menu-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu-card {
+        width: 90%;
+        margin: 10px 0;
+    }
+}
 
   /* Contact Section */
   .contact {
@@ -580,6 +621,7 @@
 
     .navbar .navbar-nav {
       position: absolute;
+      
       top: 100%;
       right: -100%;
       background-color: #fff;
